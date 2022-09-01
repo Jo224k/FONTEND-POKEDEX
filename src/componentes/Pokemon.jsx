@@ -5,8 +5,8 @@ const Pokemon=(props)  => {
     
     return(
            
-         <div className= {`pokemon ${props.data.types[0].type.name}`}>
-         <Link to={`/Detalles/${props.data.id}`} className= {`Pokemon ${props.data.types[0].type.name}`}>
+         <div className= {`pokemon ${props.data.type}`}>
+         <Link to={`/Detalles/${props.data.id}`} className= {`Pokemon ${props.data.type}`}>
          <div className="id" >#0{props.data.id} </div> 
          <div className="imgPokemon"><img className="image" src={props.data.image}/></div>
          <div className="name">

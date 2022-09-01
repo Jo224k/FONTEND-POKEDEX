@@ -14,7 +14,7 @@ function Detalles () {
 
     const getPokemon = () => {
         
-        fetch(`https://us-central1-senpai-9b555.cloudfunctions.net/getPokemon?id=${id}`)
+        fetch(`http://localhost4000/detalles${id}`, {mode:'cors'})
         .then(response=>response.json())
         .then((pokemon)=>{
             setPokemon(pokemon);

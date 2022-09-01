@@ -7,19 +7,21 @@ function Menu () {
     const [pokemones, setPokemones]= useState([]);
     const [busqueda, setBusqueda]=useState([]);
     const [orden, setOrden]=useState("id");
-    
+    const getPokemones = async() => {
+        await fetch("http://localhost:4000/pokemones", {mode:'cors'})
+        .then(response=>response.json())
+        .then((pokemones)=>{
+            setPokemones(pokemones);
+            console.log(pokemones)
+        })
+        .catch((error)=>{alert("hola",error)})
+    }
+
     useEffect(()=>{
         getPokemones()
     },[])
     
-    const getPokemones = () => {
-        fetch("https://us-central1-senpai-9b555.cloudfunctions.net/getFullList")
-        .then(response=>response.json())
-        .then((pokemones)=>{
-            setPokemones(pokemones);
-        })
-        .catch(()=>{alert("error")})
-    }
+    
 
     
     const ordenarPokemones = (a,b) => {
